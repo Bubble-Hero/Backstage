@@ -8,10 +8,10 @@
       <left-components></left-components>
 
       <!--大内容盒子-->
-      <div class="contentBox">
-        <card-components></card-components>
-        <charts-components></charts-components>
-      </div>
+      <!--<div class="contentBox">-->
+        <!--<card-components></card-components>-->
+        <!--<charts-components></charts-components>-->
+      <!--</div>-->
 
     </section>
   </div>
@@ -29,5 +29,13 @@
 </script>
 
 <style scoped>
-
+  .BigBox{
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+  }
+  section{
+    display: flex;
+    width: 100%;
+  }
 </style>
