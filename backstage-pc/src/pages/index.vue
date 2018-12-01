@@ -1,10 +1,12 @@
 <template>
-    
+    <top-components></top-components>
 </template>
 
 <script>
+    import TopComponents from "../components/TopComponents";
     export default {
-        name: "top"
+      name: "index",
+      components: {TopComponents}
     }
 </script>
 
