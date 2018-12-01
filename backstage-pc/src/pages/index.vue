@@ -29,5 +29,16 @@
 </script>
 
 <style scoped>
-
+  .BigBox{
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+  }
+  section{
+    display: flex;
+    width: 100%;
+  }
+  .contentBox{
+    width: 100%;
+  }
 </style>
