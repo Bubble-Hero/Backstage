@@ -29,7 +29,6 @@
 </script>
 
 <style scoped>
-
   .BigBox{
     width: 100%;
     height: 100%;
@@ -38,6 +37,7 @@
   section{
     display: flex;
     width: 100%;
+    height: 100%;
   }
   .contentBox{
     width: calc(100% - 250px);

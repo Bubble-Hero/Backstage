@@ -4,10 +4,13 @@
     <div class="charts">
       <!--------左边的盒子----------->
       <div class="leftBox col-md-8">
+        <span class="cover l">
+          <div class="loading"></div>
+        </span>
         <div class="leftBox-header">
           <h1><strong>Statistic</strong> Chart</h1>
           <div>
-            <a href="#" class="fresh"><i class="iconfont">&#xe613;</i></a>
+            <a href="#" class="fresh1"><i class="iconfont">&#xe613;</i></a>
 
             <a href="#" class="remove1"><i class="iconfont">&#xe623;</i></a>
           </div>
@@ -17,10 +20,13 @@
       </div>
       <!-------------右边的盒子------------->
       <div class="rightBox col-md-4">
+        <span class="cover r">
+          <div class="loading"></div>
+        </span>
         <div class="rightBox-header">
           <h1><strong>Browser </strong>Usage</h1>
           <div>
-            <a href="#" class="fresh"><i class="iconfont">&#xe613;</i></a>
+            <a href="#" class="fresh2"><i class="iconfont">&#xe613;</i></a>
             <a href="#" class="remove2"><i class="iconfont">&#xe623;</i></a>
           </div>
         </div>
@@ -33,11 +39,12 @@
 
 <script>
   import "../assets/font/iconfont.css"
+  import Datas from "../apis/getData"
+  import $  from "jquery"
   var echarts = require('echarts')
 
   var leftBoxData = [
-    '市场监管局', ' 卫计委', '环保局', '民宗委', '人保局', '文广局', '规土局', '发改局'
-  ]
+    '市场监管局', ' 卫计委', '环保局',]
   var leftBoxtDateData = [
     '9月1日', '9月2日', '9月3日', '9月4日',
     '9月5日', '9月6日', '9月7日']
@@ -49,20 +56,15 @@
   ]
   export default {
         name: "ChartsComponents",
-        data() {
-          return{
-          }
-
+    data(){
+      return{
+        login:[]
+      }
     },
     methods:{
-            myChartContainer()
-            {
-              myChart.style.width = window.innerWidth+'px';
-              myChart.style.height = window.innerHeight+'px';
-            },
             loginCharts(){
               // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echartLContainer'));
+            var myChart = echarts.init(document.getElementById('echartLContainer'));
 // 绘制图表
         var normalcolor = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
           offset: 0,
@@ -78,7 +80,7 @@
           offset: 1,
           color: '#2af598'
         }]);
-
+        var his=this
         var option = {
           timeline: {
             data:leftBoxtDateData ,
@@ -140,7 +142,7 @@
               'name': '注册指数',
               'yAxisIndex': 1,
               'type': 'bar',
-              'data': [5, 6, 8, 28, 8, 24, 11, 16],
+              'data': his.login.data1,
               itemStyle: {
                 normal: {
                   color: function(params) {
@@ -172,12 +174,13 @@
                 }
               },
             }]
-          }, {
+          },
+            {
             title: {
               'text': '9月2日'
             },
             series: [{
-              'data': [45, 43, 64, 134, 188, 43, 109, 12]
+              'data':this.login.data2
             }]
           },
             {
@@ -185,7 +188,7 @@
                 'text': '9月3日'
               },
               series: [{
-                'data': [110, 32, 111, 176, 73, 59, 181, 9]
+                'data': this.login.data3
               }]
             },
             {
@@ -193,7 +196,7 @@
                 'text': '9月4日'
               },
               series: [{
-                'data': [94, 37, 64, 55, 56, 41, 70, 17]
+                'data': this.login.data4
               }]
             },
             {
@@ -201,7 +204,7 @@
                 'text': '9月5日'
               },
               series: [{
-                'data': [5, 6, 5, 28, 8, 24, 11, 16]
+                'data': this.login.data5
               }]
             },
             {
@@ -209,7 +212,7 @@
                 'text': '9月6日'
               },
               series: [{
-                'data': [45, 34, 64, 134, 188, 43, 109, 12]
+                'data': this.login.data6
               }]
             },
             {
@@ -217,7 +220,7 @@
                 'text': '9月7日'
               },
               series: [{
-                'data': [5, 6, 34, 28, 8, 24, 11, 16]
+                'data':this.login.data7
               }]
             }
           ]
@@ -276,21 +279,64 @@
                 ]
               };
               myChart.setOption(option);
-            }
-          },
-    mounted(){
-          //左右图标
-          this.loginCharts(),
-            this.rCharts()
-        this.myChartContainer()
-        // remove事件
-      $(".remove1").click(function () {
-        $(".leftBox").css({display:"none"})
-      })
-      $(".remove2").click(function () {
-        $(".rightBox").css({display:"none"})
-      })
+            },
+            getdata(){
+              Datas._getLoginData(datas=>{
+                this.login=datas
+                console.log(datas)
+              })
+      },
+      cover(){
+        this.timer=setInterval(()=>{
+        },200)
       }
+    },
+    created(){
+      this.getdata()
+    },
+    mounted(){
+          this.$nextTick(()=>{
+            console.log(this.login)
+            //左右图标
+            this.loginCharts(),
+              this.rCharts()
+            this.getdata()
+          })
+
+      // remove事件
+      //     let count=0
+      //     this.timer=setInterval(()=>{
+      //       count++
+      //     if(count==1){
+      //         $(".loading").css({"background-size":"5px 5px"})
+      //       }else if(count==2){
+      //     $(".logintxt").html("登录中..")
+      //     }else if(count==3){
+      //     $(".logintxt").html("登录中...")
+      //   }
+      // },200)
+      //   //消失毛玻璃
+      //   $(".logining").hide(100)
+      //   //改变btn内容
+      //   $(".sub-btn").html("")
+      //   //停止定时器
+      //   clearInterval(this.timer)
+      // })
+      //jquery
+
+        $(".remove1").click(function () {
+          $(".leftBox").css({display:"none"})
+        })
+        $(".remove2").click(function () {
+          $(".rightBox").css({display:"none"})
+        })
+        $(".fresh1").click(function () {
+          $(".l").css({display:"block"})
+        })
+        $(".fresh2").click(function () {
+        $(".r").css({display:"block"})
+      })
+    }
   }
 </script>
 
@@ -307,6 +353,24 @@
     border-radius: 5px;
     background:linear-gradient(to right,#a87e69,#6e4a5c) transparent;
     margin-right: 1%;
+    position: relative;
+  }
+  .cover{
+    width:100%;
+    height:100% ;
+  position: absolute;
+    background: #000;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    display: none;
+    opacity: 0.5}
+  .loading{
+    width: 13px;
+    height: 13px;
+    margin:174px auto;
+    background: url("../assets/img/loader.gif") no-repeat;
+    background-size:13px 13px;
   }
   .leftBox-header{
     position: relative;

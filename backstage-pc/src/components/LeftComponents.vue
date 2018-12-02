@@ -10,8 +10,14 @@
     </ul>
 
     <ul id="demo" class="collapse in two">
+
+      <li v-for="(is,ts) in list">
+        <a class="sec" data-toggle="collapse" data-parent="#accordion"
+           href="#collapseTwo">
+
       <li v-for="(is,ts) in list" class="lis" style="position: relative">
         <a class="sec" data-toggle="tab" href="#home">
+
           <i :class="is.i1"></i>
           <p class="dis">
             <span>{{is.span}}</span>
