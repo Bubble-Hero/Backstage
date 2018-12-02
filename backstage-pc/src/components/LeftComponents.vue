@@ -136,6 +136,7 @@
 </script>
 
 <style scoped>
+
   *{
     margin: 0;
     padding: 0;
@@ -214,4 +215,5 @@
   #demo2 p{
     color: #fff;
   }
+
 </style>
