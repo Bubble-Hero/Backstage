@@ -8,10 +8,10 @@
       <left-components></left-components>
 
       <!--大内容盒子-->
-      <!--<div class="contentBox">-->
-        <!--<card-components></card-components>-->
-        <!--<charts-components></charts-components>-->
-      <!--</div>-->
+      <div class="contentBox">
+        <card-components></card-components>
+        <charts-components></charts-components>
+      </div>
 
     </section>
   </div>
