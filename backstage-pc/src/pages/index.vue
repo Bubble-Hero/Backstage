@@ -29,5 +29,10 @@
 </script>
 
 <style scoped>
-
+  section{
+    display: flex;
+  }
+  .contentBox{
+    width: calc(100% - 250px);
+  }
 </style>
