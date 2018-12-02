@@ -41,4 +41,5 @@
   .contentBox{
     width: calc(100% - 250px);
   }
+
 </style>
