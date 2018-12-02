@@ -10,7 +10,6 @@
     </ul>
 
     <ul id="demo" class="collapse in two">
-
       <li v-for="(is,ts) in list">
         <a class="sec" data-toggle="collapse" data-parent="#accordion"
            href="#collapseTwo">
@@ -182,7 +181,10 @@
     color: #66c910!important;
   }
   .nav{
+    background: transparent;
+
     /*background: #ce959b;*/
+
     color: #fff;
     width: 250px;
     height: 100%;
