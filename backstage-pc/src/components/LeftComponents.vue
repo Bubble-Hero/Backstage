@@ -9,18 +9,18 @@
       </li>
     </ul>
 
-    <ul id="accordion" class="collapse in two">
-      <li v-for="(is,ts) in list">
-        <a class="sec" data-toggle="collapse" data-parent="#accordion"
-           href="#collapseTwo">
+    <ul id="demo" class="collapse in two">
+      <li v-for="(is,ts) in list" class="lis" style="position: relative">
+        <a class="sec" data-toggle="tab" href="#home">
           <i :class="is.i1"></i>
           <p class="dis">
             <span>{{is.span}}</span>
             <i :class="is.i2"></i>
           </p>
         </a>
-        <ul id="collapseTwo" class="panel-collapse collapse coo">
-          <li v-for="(iss,tss) in is.ulli">
+        <!--<div class="xiao" style=""></div>-->
+        <ul style="display: none;" class="coo">
+          <li v-for="(iss,tss) in is.ulli" class="geta">
             <a href="">
               <i :class="iss.i3"></i>
               <span>{{iss.spp}}</span>
@@ -114,13 +114,7 @@
                   {"i3":"glyphicon glyphicon-play","spp":"Calendar"},
                   {"i3":"glyphicon glyphicon-play","spp":"Page 404"},
                   {"i3":"glyphicon glyphicon-play","spp":"Page 500"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Page Offline"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Gallery"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Timeline"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Vertical Mail"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Horizpntal Mail"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Vector Maps"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Google Maps"}
+                  {"i3":"glyphicon glyphicon-play","spp":"Page Offline"}
                 ]
               },
               {"i1":"glyphicon glyphicon-expand",
@@ -131,6 +125,40 @@
               }
             ]
           }
+        },
+        mounted(){
+
+            //hover的时候改变字体颜色
+            $(function(){
+              $('.geta').hover(function(){
+                $(this).children('a').css({
+                  "color":"#418208"
+                })
+                $(this).children('a').children('i').css({
+                  "color":"#418208"
+                })
+                $(this).siblings().children('a').css({
+                  "color":"#fff"
+                })
+                $(this).siblings().children('a').children('i').css({
+                  "color":"#fff"
+                })
+              },function(){
+                $(this).children('a').css({
+                  "color":"#fff"
+                })
+                $(this).children('a').children('i').css({
+                  "color":"#fff"
+                })
+              })
+
+              $('.sec').click(function(){
+                $(this).siblings(".coo").toggle(300)
+                $(this).parent().siblings("li").children(".coo").slideUp(300)
+              })
+
+            })
+
         }
     }
 </script>
@@ -144,8 +172,11 @@
   ul li{
     list-style: none;
   }
+  .acti{
+    color: #66c910!important;
+  }
   .nav{
-    background: #ccc;
+    /*background: #ce959b;*/
     color: #fff;
     width: 250px;
     height: 100%;
@@ -201,8 +232,7 @@
     float: right;
   }
   .nav .two li .coo{
-    background: #ccc;
-    padding-left: 20px;
+    padding-left: 30px;
     width: 100%;
   }
   .nav .two li .coo li{
@@ -212,8 +242,20 @@
     font-size: 12px;
     color: #fff;
   }
+  .nav .two li .coo li a i{
+    font-size: 10px;
+    color: #fff;
+  }
   #demo2 p{
     color: #fff;
   }
-
+  .xiao{
+    position: absolute;
+    width: 250px;
+    height: 45px;
+    background: #000;
+    opacity: 0.3;
+    top: 0;
+    display: none;
+  }
 </style>
