@@ -1,6 +1,6 @@
 
 export default {
-  "userNumber":[56],
+  "userNumber":56,
   "HYM":{},
   "ljj":[],
   "wj":[]

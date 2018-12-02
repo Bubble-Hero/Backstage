@@ -13,7 +13,7 @@
               <i class="iconfont">&#xe519;</i>
               <p>
                 <span class="sortSpan01">总客户量</span>
-                <span class="sortSpan02 sortSpan02Big"><span class="sortSpan03">人</span></span>
+                <span class="sortSpan02 sortSpan02Big">{{user}}<span class="sortSpan03">人</span></span>
               </p>
             </div>
             <div class="sortBox02">
@@ -96,19 +96,19 @@
         name: "CardComponents",
     data(){
       return{
-        jj:[]
+        user:[]
       }
     },
     methods:{
           getdata(){
             Datas._getUserData(datas=>{
-              this.jj=datas
+              this.user=datas
               console.log(datas)
             })
 
           }
     },
-       mounted(){
+    mounted(){
         //---------sort翻转------------
         $('.sortBox').each(function(){
           $(this).hover(
@@ -122,7 +122,7 @@
         }),
           //
          this.getdata()
-      },
+    },
 
 
 
