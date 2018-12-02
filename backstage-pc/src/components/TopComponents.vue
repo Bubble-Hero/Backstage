@@ -16,55 +16,265 @@
               </div>
               <div class="topInnerR">
                 <div class="topInnerRDiv">
-                  <div class="dropdown">
+                  <div class="dropdown dropdownBox">
                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-tasks"></span></button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                      <li role="presentation" class="dropdown-header">下拉菜单标题 1</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                    <ul class="dropdown-menu changeBg1" role="menu" aria-labelledby="menu1" style="width: 266px;">
+                      <li role="presentation" class="dropdown-header headerMeauHead">YOU HAVE 2 NEW TASK</li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                        <div style="margin-bottom: 5px;">layout</div>
+                          <dtv class="">
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                <span class="sr-only">40% Complete (success)</span>
+                              </div>
+                            </div>
+                          </dtv>
+                        </a>
+                      </li>
                       <li role="presentation" class="divider"></li>
-                      <li role="presentation" class="dropdown-header">下拉菜单标题 2</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于我们</a></li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#"><div style="margin-bottom: 10px;">Scheam</div><div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                          <span class="sr-only">20% Complete</span>
+                        </div>
+                      </div>
+                        </a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="headerMeauLi1"><a role="menuitem" tabindex="-1" href="#"><div style="margin-bottom: 10px;">Forms</div><div class="progress">
+                        <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                          <span class="sr-only">60% Complete (warning)</span>
+                        </div>
+                      </div></a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="headerMeauLi1"><a role="menuitem" tabindex="-1" href="#"><div style="margin-bottom: 10px;">Javascript</div><div class="progress">
+                        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                          <span class="sr-only">80% Complete (danger)</span>
+                        </div>
+                      </div></a></li>
+                      <div class="angle" style="right: 227px;border-bottom-color:#444444 "></div>
                     </ul>
                   </div>
                   <p>2</p>
                 </div>
                 <div class="topInnerRDiv">
-                  <div class="dropdown">
+                  <div class="dropdown dropdownBox">
                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-envelope"></span></button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                      <li role="presentation" class="dropdown-header">下拉菜单标题 1</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                    <ul class="dropdown-menu changeBg1" role="menu" aria-labelledby="menu1" style="width: 266px;">
+                      <li role="presentation" class="dropdown-header headerMeauHead">YOU HAVE 2 NEW TASK</li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-2.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h4 class="media-heading">Middle aligned media</h4>
+                              <h6>Middle aligned middle aligned</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+
                       <li role="presentation" class="divider"></li>
-                      <li role="presentation" class="dropdown-header">下拉菜单标题 2</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于我们</a></li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox" style="background: #f6fae5;">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-3.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h4 class="media-heading">Middle aligned media</h4>
+                              <h6>Middle aligned middle aligned</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox" style="background: #f2f2f2;">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-4.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h4 class="media-heading">Middle aligned media</h4>
+                              <h6>Middle aligned middle aligned</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox" style="background: #ffedec;">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-4.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h4 class="media-heading">Middle aligned media</h4>
+                              <h6>Middle aligned middle aligned</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-2.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h4 class="media-heading">Middle aligned media</h4>
+                              <h6>Middle aligned middle aligned</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <div class="angle" style="right: 227px;border-bottom-color:#444444 "></div>
                     </ul>
                   </div>
-                  <p>2</p>
+                  <p>1</p>
                 </div>
                 <div class="topInnerRDiv">
-                  <div class="dropdown">
+                  <div class="dropdown dropdownBox">
                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                      <li role="presentation" class="dropdown-header">下拉菜单标题 1</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+                    <ul class="dropdown-menu changeBg1" role="menu" aria-labelledby="menu1" style="width: 266px;">
+                      <li role="presentation" class="dropdown-header headerMeauHead">YOU HAVE 2 NEW TASK</li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox1">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-5.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h6>New user registered</h6>
+                            </div>
+                            <div class="media-body">
+                              <h6>8 mins</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
                       <li role="presentation" class="divider"></li>
-                      <li role="presentation" class="dropdown-header">下拉菜单标题 2</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于我们</a></li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox1">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-6.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h6>New user registered</h6>
+                            </div>
+                            <div class="media-body">
+                              <h6>8 mins</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox1">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-7.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h6>New user registered</h6>
+                            </div>
+                            <div class="media-body">
+                              <h6>8 mins</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="headerMeauLi1">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <div class="media mediaBox1">
+                            <div class="media-left media-middle">
+                              <a href="#">
+                                <img class="media-object" src="../assets/img/top-head-8.jpg" alt="">
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <h6>New user registered</h6>
+                            </div>
+                            <div class="media-body">
+                              <h6>8 mins</h6>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <div class="angle" style="right: 227px;border-bottom-color:#444444 "></div>
                     </ul>
                   </div>
-
-                  <p>2</p>
+                  <p>3</p>
                 </div>
                 <div class="topInnerRDiv">
                   <img src="../assets/img/top-head.jpg" alt="">
                   <div  class="name">John Douey</div>
-                  <span class="glyphicon glyphicon-chevron-down"></span>
+                  <div class="dropdown dropdownBox"  style="position: relative">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                    <ul class="dropdown-menu changeBg4" role="menu" aria-labelledby="menu1">
+                      <li role="presentation" class="dropdown-header headerHead">Backgrouds</li>
+                      <li role="presentation" class="headerMeauLi">
+                          <div class="bgColor">
+                              <div class="bgCircle"></div>
+                              <div class="bgCircle" style="background:#e5b867"></div>
+                              <div class="bgCircle" style="background:#6b7181"></div>
+                              <div class="bgCircle" style="background:#79868f"></div>
+                              <div class="bgCircle" style="background:#9d726c"></div>
+                              <div class="bgCircle" style="background:#adbacb"></div>
+                          </div>
+                      </li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Video BG</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                        <span class="glyphicon glyphicon-user" style="color:#717171;"></span>
+                        Profile
+                        </a>
+                      </li>
+                      <li role="presentation" style="padding: 10px 0;position: relative;">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <span class="glyphicon glyphicon-list-alt" style="color:#717171;"></span>
+                          Calendar
+                        </a>
+
+                      </li>
+                      <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="#">
+                          <span class="glyphicon glyphicon-envelope" style="color:#717171;"></span>
+                          Inbox
+                        </a>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
+                      <div class="angle"></div>
+                    </ul>
+                  </div>
+
                 </div>
                 <div class="topInnerRDiv">
                   <span class="glyphicon glyphicon-comment"></span>
@@ -81,12 +291,20 @@
     export default {
       name: "TopComponents",
       mounted(){
-
       }
     }
 </script>
 
 <style scoped>
+
+  @media screen and (max-width: 800px){
+    .topLeftBoxL{
+      display: none;
+    }
+    .topLeftBox{
+      width: 45px;
+    }
+  }
   /*公共样式*/
   div,p,ul,ol,li,dl,dt,dd,form,tr,td,hr,h1,h2,h3,h4,h5,h6,hr,input,table,fieldset,figure{
     margin:0;
@@ -143,7 +361,7 @@
     font-style: normal;
   }
   .topRightBox{
-    width: 100%;
+    width:calc(100% - 250px);
     height: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -182,16 +400,19 @@
   }
   .topInnerRDiv{
     height: 100%;
-    padding: 0 18px;
+    padding:0 8px 0 10px;
     display:flex;
     align-items: center;
     /*justify-content: space-between;*/
     border-right: 1px solid gray;
   }
+  .topInnerRDiv:last-child{
+    padding-left: 8px;
+  }
   .topInnerRDiv p{
     font-size: 9px;
     padding: 4px 6px;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -203,7 +424,7 @@
     margin-right: 10px;
   }
   .topInnerRDiv .name {
-    margin-right: 10px;
+    /*margin-right: 10px;*/
   }
   .topRightBoxInner span:hover{
     color: pink;
@@ -216,5 +437,106 @@
     background: transparent;
     border: 0;
   }
-
+  .bgColor{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .bgCircle{
+    width:14px;
+    height:14px;
+    background: #ce959b;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+  }
+  .dropdownBox{
+    position: relative;
+  }
+  .changeBg1{
+     position: absolute;
+     left:-8px;
+     top: 41px;
+     padding-bottom: 10px;
+     /*padding: 10px 16px;*/
+   }
+  .changeBg4{
+    position: absolute;
+    left:-117px;
+    top: 41px;
+    padding: 10px 16px;
+  }
+  .headerHead{
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #9b9b9b;
+  }
+  .headerMeauLi{
+    height: 30px;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
+  }
+  .dropdown-menu > li > a{
+    padding: 3px 0;
+  }
+  .angle{
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color:white;
+    position: absolute;
+    top: -18px;
+    right: 22px;
+  }
+  .headerMeauLi1{
+    /*height: 60px;*/
+    padding: 0 10px;
+    /*display: flex;*/
+    /*align-items: center;*/
+  }
+  .headerMeauHead{
+    height: 48px;
+    color: #898989;
+    font-size: 14px;
+    background: #444444;
+    padding:0 18px;
+    line-height: 48px;
+    margin-bottom: 10px;
+  }
+  .progress{
+    height: 12px;
+  }
+  .mediaBox{
+    padding: 10px 15px;
+    /*box-sizing:content-box;*/
+    background: #e8f8fd;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .mediaBox1{
+    /*padding: 10px 15px;*/
+    /*box-sizing:content-box;*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .mediaBox img{
+    width: 40px;
+    height: 40px;
+  }
+  .mediaBox1 img{
+    width: 20px;
+    height: 20px;
+  }
+  .mediaBox h6{
+    color: #b3b3b3;
+  }
+  .mediaBox h4{
+    color: #8a8a8a;
+  }
+  .media-body{
+    vertical-align: middle;
+  }
 </style>

@@ -6,9 +6,9 @@
 
 <script>
 import CardComponents from "./components/CardComponents";
+
 export default {
   name: 'App',
-  components: {CardComponents},
 }
 </script>
 
