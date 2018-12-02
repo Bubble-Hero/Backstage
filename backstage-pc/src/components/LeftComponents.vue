@@ -9,7 +9,7 @@
       </li>
     </ul>
 
-    <ul id="accordion" class="collapse in two">
+    <ul id="demo" class="collapse in two">
       <li v-for="(is,ts) in list">
         <a class="sec" data-toggle="collapse" data-parent="#accordion"
            href="#collapseTwo">
@@ -145,7 +145,7 @@
     list-style: none;
   }
   .nav{
-    background: #ccc;
+    background: transparent;
     color: #fff;
     width: 250px;
     height: 100%;
