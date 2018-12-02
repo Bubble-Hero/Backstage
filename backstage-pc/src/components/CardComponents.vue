@@ -1,7 +1,11 @@
 <template>
   <div style="width: 100%">
+    <div class="title">
+      <h2>羹团后台管理 <span>Content Manage Of MeiTuan</span></h2>
+
+    </div>
     <!--...bootstrap....-->
-    <div class="row">
+    <div class="row" style="margin: 0;">
       <div class="col-xs-6 col-sm-3">
 
           <div class="sortBox">
@@ -108,8 +112,22 @@
     .sortSpan03{display: none;}
   }
 
-    .col-xs-6{
-    background: #e7e1cd;
+
+  .title{
+    margin: 40px 0px 15px 20px;
+  }
+  .title h2{
+    font-size: 35px;
+    color: rgba(255,255,255,.8);
+
+  }
+  .title span{
+    font-size: 20px;
+    margin-left: 10px;
+    color: rgba(255,255,255,.6);
+
+  }
+  .col-xs-6{
   }
   .sortBox{
     display: flex;
@@ -139,7 +157,7 @@
   }
   .sortSpan01{
     display: block;
-    font-size: 15px;
+    font-size: 14px;
     color: rgba(255,255,255,.6);
   }
   .sortSpan02{
@@ -175,12 +193,8 @@
     transform: rotateY(-180deg) translateZ(1px);
     border-radius: 7px;
   }
-  .sortBox02Parent{
-    display: flex;
-    flex-wrap: wrap;
-  }
   .sortBox02 i{
-    font-size: 35px;
+    font-size: 30px;
     color:#22a7f0 ;
   }
   .sortBox02 i:hover{
@@ -188,7 +202,7 @@
     font-weight: 600;
   }
   .sortBox02 span{
-    font-size: 26px;
+    font-size: 20px;
     color:#22a7f0 ;
   }
   .color01{

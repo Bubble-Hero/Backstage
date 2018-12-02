@@ -32,13 +32,15 @@
   .BigBox{
     width: 100%;
     height: 100%;
-    background: #ccc;
+    background: #f4ac93;
+
   }
   section{
     display: flex;
     width: 100%;
   }
   .contentBox{
-    width: 100%;
+    width: calc(100% - 250px);
   }
+
 </style>
