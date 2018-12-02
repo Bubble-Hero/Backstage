@@ -1,23 +1,25 @@
 <template>
   <div class="nav">
-    <ul class="one">
-      <li class="first">
-        <a href="">
+    <ul class="one" >
+      <li class="first" data-toggle="collapse" data-target="#demo">
+        <div href="">
           <span>NAVIGATION</span>
           <i class="glyphicon glyphicon-menu-down"></i>
-        </a>
+        </div>
       </li>
     </ul>
-    <ul class="two">
+
+    <ul id="accordion" class="collapse in two">
       <li v-for="(is,ts) in list">
-        <div class="sec">
+        <a class="sec" data-toggle="collapse" data-parent="#accordion"
+           href="#collapseTwo">
           <i :class="is.i1"></i>
           <p class="dis">
             <span>{{is.span}}</span>
             <i :class="is.i2"></i>
           </p>
-        </div>
-        <ul class="coo">
+        </a>
+        <ul id="collapseTwo" class="panel-collapse collapse coo">
           <li v-for="(iss,tss) in is.ulli">
             <a href="">
               <i :class="iss.i3"></i>
@@ -27,14 +29,33 @@
         </ul>
       </li>
     </ul>
+
     <ul class="one">
       <li class="first">
-        <a href="">
+        <div data-toggle="collapse" data-target="#demo1">
           <span>ORDERS SUMMARY</span>
           <i class="glyphicon glyphicon-menu-down"></i>
-        </a>
+        </div>
+        <div id="demo1" class="collapse">
+          <div class="chart1">
+              <p>THIS WEEK SALES</p>
+              <p>THIS WEEK BALANCE</p>
+          </div>
+        </div>
+      </li>
+
+      <li class="first">
+        <div data-toggle="collapse" data-target="#demo2">
+          <span>GENERAL SETTINGS</span>
+          <i class="glyphicon glyphicon-menu-down"></i>
+        </div>
+        <div id="demo2" class="collapse">
+          <p>switch ON</p>
+          <p>switch OFF</p>
+        </div>
       </li>
     </ul>
+
   </div>
 
 
@@ -108,14 +129,9 @@
               {"i1":"glyphicon glyphicon-stats",
                 "span":"Charts & Graphs"
               }
-            ],
+            ]
           }
         }
-        // mounted(){
-        //   $(function () {
-        //     $(".coo").hide();
-        //   })
-        // }
     }
 </script>
 
@@ -128,7 +144,7 @@
     list-style: none;
   }
   .nav{
-    background: blue;
+    background: #ccc;
     color: #fff;
     width: 250px;
     height: 100%;
@@ -136,6 +152,7 @@
   .nav .one li{
     list-style: none;
     padding-left: 15px;
+    cursor: pointer;
   }
   .nav ul li a{
     text-decoration: none;
@@ -151,12 +168,21 @@
     line-height: 45px;
     text-align: center;
   }
-  .nav .one .first a{
+  .nav .one .first div{
     color: #aa7864;
+  }
+  .chart1 p{
+    font-size: 12px;
+    color: #fff;
+    width: 100%;
+  }
+  .nav .two li:hover{
+    cursor: pointer;
   }
   .nav .two li .sec{
     display: flex;
     height: 45px;
+    color: #fff;
   }
   .nav .two li .sec i{
     line-height: 45px;
@@ -174,14 +200,18 @@
     float: right;
   }
   .nav .two li .coo{
-    background: red;
+    background: #ccc;
     padding-left: 20px;
+    width: 100%;
   }
   .nav .two li .coo li{
     line-height: 30px;
   }
   .nav .two li .coo li a{
     font-size: 12px;
+    color: #fff;
+  }
+  #demo2 p{
     color: #fff;
   }
 </style>
