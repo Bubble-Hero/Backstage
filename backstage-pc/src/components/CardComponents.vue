@@ -13,7 +13,7 @@
               <i class="iconfont">&#xe519;</i>
               <p>
                 <span class="sortSpan01">总客户量</span>
-                <span class="sortSpan02 sortSpan02Big">50<span class="sortSpan03">人</span></span>
+                <span class="sortSpan02 sortSpan02Big"><span class="sortSpan03">人</span></span>
               </p>
             </div>
             <div class="sortBox02">
@@ -53,7 +53,7 @@
               <i class="iconfont">&#xe6eb;</i>
               <p>
                 <span class="sortSpan01">总商品量</span>
-                <span class="sortSpan02">501006<span class="sortSpan03">个</span></span>
+                <span class="sortSpan02">50106<span class="sortSpan03">个</span></span>
               </p>
             </div>
             <div class="sortBox02">
@@ -73,9 +73,14 @@
                 <span class="sortSpan02">8<span class="sortSpan03">个</span></span>
               </p>
             </div>
-            <div class="sortBox02 sortBox02Parent">
-              <i class="iconfont">&#xe63a;</i>
-              <span>合作伙伴</span>
+            <div class="sortBox02">
+              <div class="sortBox02Parent">
+                <img src="../../static/img/cards01.jpg">
+                <img src="../../static/img/cards02.jpg">
+                <img src="../../static/img/cards03.jpg">
+                <img src="../../static/img/cards04.jpg">
+              </div>
+              <span style="font-size: 15px">特别合作伙伴</span>
             </div>
           </div>
 
@@ -85,10 +90,25 @@
 </template>
 
 <script>
+  import Datas from "../apis/getData"
   import $ from "jquery"
   export default {
         name: "CardComponents",
-      mounted(){
+    data(){
+      return{
+        jj:[]
+      }
+    },
+    methods:{
+          getdata(){
+            Datas._getUserData(datas=>{
+              this.jj=datas
+              console.log(datas)
+            })
+
+          }
+    },
+       mounted(){
         //---------sort翻转------------
         $('.sortBox').each(function(){
           $(this).hover(
@@ -99,8 +119,13 @@
               $(this).css({transform:'rotateY(0deg)',transition: 'all 0.4s'})
             }
           );
-        })
-      }
+        }),
+          //
+         this.getdata()
+      },
+
+
+
     }
 </script>
 
@@ -165,9 +190,7 @@
     font-size: 25px;
     color: white;
   }
-  /*.sortSpan02Big{*/
-    /*font-size: 40px;*/
-  /*}*/
+
   .sortSpan03{
     padding: 1px 6px;
     font-size: 10px;
@@ -192,6 +215,12 @@
     transform-style: preserve-3d;
     transform: rotateY(-180deg) translateZ(1px);
     border-radius: 7px;
+  }
+  .sortBox02Parent img{
+    margin: 2px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
   }
   .sortBox02 i{
     font-size: 30px;
