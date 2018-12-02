@@ -30,9 +30,6 @@
 
 <style scoped>
 
-  section{
-    display: flex;
-
   .BigBox{
     width: 100%;
     height: 100%;
