@@ -13,7 +13,7 @@
 
       <li v-for="(is,ts) in list" style="position: relative;" class="show">
         <a class="sec">
-          <i :class="is.i1"></i>
+          <i :class="is.i1" class="padd"></i>
           <p class="dis">
             <span>{{is.span}}</span>
             <i :class="is.i2"></i>
@@ -127,8 +127,6 @@
           }
         },
         mounted(){
-
-
             $(function(){
               $('.show').eq(0).children('.xiao').animate({left:"0"})
               //hover的时候改变字体颜色
@@ -155,7 +153,7 @@
               })
               //点击下拉菜单
               $('.sec').click(function(){
-                $(this).siblings(".coo").toggle(300)
+                $(this).siblings(".coo").slideToggle(300)
                 $(this).parent().siblings("li").children(".coo").slideUp(300)
                 //改变遮罩层的left
                 $(this).siblings('.xiao').animate({
@@ -172,12 +170,23 @@
 </script>
 
 <style scoped>
+
   @media screen and (max-width: 960px){
+    .show:hover{
+      background: #333;
+      /*width: 250px;*/
+    }
+    /*.show:hover .dis{*/
+      /*opacity: 1;*/
+    /*}*/
     .nav{
       width: 45px!important;
     }
+    .padd{
+      padding-left: 18px;
+    }
     .dis{
-      display: none;
+      opacity: 0;
     }
     .one{
       display: none;
@@ -258,7 +267,7 @@
     float: right;
   }
   .nav .two li .coo{
-    padding-left: 40px;
+    padding-left: 20px;
     width: 100%;
   }
   .nav .two li .coo li{
