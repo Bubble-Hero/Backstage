@@ -23,13 +23,13 @@
                       <li role="presentation" class="headerMeauLi1">
                         <a role="menuitem" tabindex="-1" href="#">
                         <div style="margin-bottom: 5px;">layout</div>
-                          <dtv class="">
+                          <div class="">
                             <div class="progress">
                               <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
                                 <span class="sr-only">40% Complete (success)</span>
                               </div>
                             </div>
-                          </dtv>
+                          </div>
                         </a>
                       </li>
                       <li role="presentation" class="divider"></li>
@@ -296,19 +296,21 @@
           // 背景存储 及切换
           var bgig = localStorage.getItem("bgig");
           if (bgig == null) {
-            $(".BigBox").css({ "background-image": "url(../assets/img/bg1.jpg)", "background-size": "cover" });
+            $("body").css({ "background-image": "url(../assets/img/bg1.jpg)", "background-size": "cover" });
           }
           else {
-            $(".BigBox").css({ "background-image": "url(" + bgig + ")", "background-size": "cover" });
+            $("body").css({ "background-image": "url(" + bgig + ")", "background-size": "cover" });
           }
 
 
           // 点击背景标 切换背景
           $(".bgColor img").click(function () {
             var src = $(this).attr("src");
-            $(".BigBox").css({ "background-image": "url(" + src + ")","background-repeat":"no-repeat","background-size":"100%" });
+            $("body").css({ "background-image": "url(" + src + ")","background-repeat":"no-repeat","background-size":"100%" });
             localStorage.setItem("bgig", src);
           });
+
+
           // 点击右侧按钮 若隐藏就消失 若不在就显示
           $('.topInnerRDiv5').click(function(){//点击
             if($('.rightBigBox').is(':hidden')){//如果当前隐藏

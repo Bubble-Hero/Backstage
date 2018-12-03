@@ -159,9 +159,11 @@
                 $(this).siblings('.xiao').animate({
                   left:'0px'
                 })
-                $(this).parent().siblings("li").children(".xiao").not($('.xiao')[0]).animate({left:'-250px'})
+                $(this).parent().siblings("li").children(".xiao").not($('.xiao')[0]).css({left:'-250px',})
                 //切换iconfont
-                // $(this).children('p').children('i').attr("class","glyphicon glyphicon-minus")
+                 $(this).children('p').children('i').stop().toggleClass("glyphicon glyphicon-minus")
+                $(this).parent().siblings().find('p').children('i').stop().removeClass("glyphicon glyphicon-minus")
+                  $('.dis').eq(3).children("i").add($('.dis').eq(4).children("i")).add($('.dis').eq(7).children("i")).add($('.dis').eq(8).children("i")).removeClass("glyphicon glyphicon-minus")
               })
             })
 
@@ -288,6 +290,7 @@
     position: absolute;
     width: 250px;
     height: 45px;
+    z-index: -1;
     background: linear-gradient(90deg,rgba(0,0,0,.2),rgba(0,0,0,0));
     top: 0;
     left: -250px;
