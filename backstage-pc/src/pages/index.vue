@@ -128,7 +128,13 @@
 </script>
 
 <style scoped>
-body{
+  @media screen and (max-width: 960px){
+    section .contentBox{
+      width:calc(100% - 45px);
+    }
+  }
+
+  body{
   background-image: url(../assets/img/bg1.jpg);
 }
   .BBigBox{
@@ -145,6 +151,7 @@ body{
     display: flex;
     width: 100%;
     height: 100%;
+    padding-right: 4.5rem;
   }
   .contentBox{
     width: calc(100% - 250px);

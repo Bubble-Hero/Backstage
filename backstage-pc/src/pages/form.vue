@@ -153,55 +153,55 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="InputBox">
-                <span class="cover l">
-                    <div class="loading"></div>
-               </span>
-              <div class="InputBox-header">
-                <h3><strong>Input </strong> Groups</h3>
-                <div>
-                  <a href="#" class="fresh1"><i class="glyphicon glyphicon-refresh"></i></a>
-                  <a href="#" class="remove1"><i class="glyphicon glyphicon-remove"></i></a>
+          <!--<div class="row">-->
+            <!--<div class="InputBox">-->
+                <!--<span class="cover l">-->
+                    <!--<div class="loading"></div>-->
+               <!--</span>-->
+              <!--<div class="InputBox-header">-->
+                <!--<h3><strong>Input </strong> Groups</h3>-->
+                <!--<div>-->
+                  <!--<a href="#" class="fresh1"><i class="glyphicon glyphicon-refresh"></i></a>-->
+                  <!--<a href="#" class="remove1"><i class="glyphicon glyphicon-remove"></i></a>-->
 
 
-                </div>
-              </div>
-              <div class="InputBox-content">
-                <div class="form-group has-success has-feedback">
-                  <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
-                  <div class="input-group">
-                    <span class="input-group-addon">@</span>
-                    <input type="text" class="form-control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
-                  </div>
-                  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                  <span id="inputGroupSuccess4Status" class="sr-only">(success)</span>
-                </div>
-                <form class="form-inline">
-                  <div class="form-group">
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="exampleInputAmount1" placeholder="Amount">
-                      <div class="input-group-addon">.00</div>
-                    </div>
-                  </div>
-                </form>
-                <form class="form-inline">
-                  <div class="form-group">
-                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">$</div>
-                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-                      <div class="input-group-addon">.00</div>
-                    </div>
-                  </div>
-                </form>
-                <h3>Sizing</h3>
-                <input class="form-control input-lg" type="text" placeholder=".input-lg">
-                <input class="form-control" type="text" placeholder="Default input">
-                <input class="form-control input-sm" type="text" placeholder=".input-sm">
-              </div>
-            </div>
-          </div>
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="InputBox-content">-->
+                <!--<div class="form-group has-success has-feedback">-->
+                  <!--<label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>-->
+                  <!--<div class="input-group">-->
+                    <!--<span class="input-group-addon">@</span>-->
+                    <!--<input type="text" class="form-control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">-->
+                  <!--</div>-->
+                  <!--<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>-->
+                  <!--<span id="inputGroupSuccess4Status" class="sr-only">(success)</span>-->
+                <!--</div>-->
+                <!--<form class="form-inline">-->
+                  <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                      <!--<input type="text" class="form-control" id="exampleInputAmount1" placeholder="Amount">-->
+                      <!--<div class="input-group-addon">.00</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</form>-->
+                <!--<form class="form-inline">-->
+                  <!--<div class="form-group">-->
+                    <!--<label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>-->
+                    <!--<div class="input-group">-->
+                      <!--<div class="input-group-addon">$</div>-->
+                      <!--<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">-->
+                      <!--<div class="input-group-addon">.00</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</form>-->
+                <!--<h3>Sizing</h3>-->
+                <!--<input class="form-control input-lg" type="text" placeholder=".input-lg">-->
+                <!--<input class="form-control" type="text" placeholder="Default input">-->
+                <!--<input class="form-control input-sm" type="text" placeholder=".input-sm">-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
         </div>
       </section>
 

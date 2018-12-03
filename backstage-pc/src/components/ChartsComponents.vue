@@ -312,24 +312,11 @@
 
       // remove事件
       $(".fresh1").click(function () {
-        let count=0
-        this.timer=setInterval(()=>{
-          $(".cover").css({"display":"block"})
-          // count++
-          // if(count==1){
-          //   $(".cover").css({"display":"block"})
-          // }else if(count==2){
-          //   $(".logintxt").html("登录中..")
-          // }else if(count==3){
-          //   $(".logintxt").html("登录中...")
-          // }
-        },200)
+          $(".l").css({"display":"block"})
         //消失毛玻璃
-        $(".l").hide(100)
-        //改变btn内容
-        $(".sub-btn").html("")
-        //停止定时器
-        clearInterval(this.timer)
+        setTimeout(()=>{
+          $(".l").css({display:"none"})
+        },2000)
       })
 
       //jquery
@@ -345,6 +332,9 @@
         // })
         $(".fresh2").click(function () {
         $(".r").css({display:"block"})
+          setTimeout(()=>{
+            $(".r").css({display:"none"})
+          },2000)
       })
     }
   }
