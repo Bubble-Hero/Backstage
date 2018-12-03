@@ -1,68 +1,75 @@
 <!--suppress ALL -->
 <template>
-  <div class="row">
-    <div class="charts">
-      <!--------左边的盒子----------->
-      <div class="leftBox col-md-8">
-        <div class="leftBox-header">
-          <h1><strong>Statistic</strong> Chart</h1>
-          <div>
-            <a href="#" class="fresh"><i class="iconfont">&#xe613;</i></a>
+  <div class="all">
+    <div class="row">
+      <div class="charts">
+        <!--------左边的盒子----------->
+        <div class="leftBox col-md-8">
+          <span class="cover l">
+            <div class="loading"></div>
+          </span>
+          <div class="leftBox-header">
+            <h1><strong>Statistic</strong> Chart</h1>
+            <div>
+              <a href="#" class="fresh1"><i class="glyphicon glyphicon-refresh"></i></a>
+              <a href="#" class="remove1"><i class="glyphicon glyphicon-remove"></i></a>
 
-            <a href="#" class="remove1"><i class="iconfont">&#xe623;</i></a>
+
+            </div>
           </div>
+          <!--创建一个echarts的容器-->
+          <div id="echartLContainer" class="transparent;" style="width:100%; height:304px;"></div>
         </div>
-        <!--创建一个echarts的容器-->
-        <div id="echartLContainer" class="transparent;" style="width:100%; height:304px;"></div>
-      </div>
-      <!-------------右边的盒子------------->
-      <div class="rightBox col-md-4">
-        <div class="rightBox-header">
-          <h1><strong>Browser </strong>Usage</h1>
-          <div>
-            <a href="#" class="fresh"><i class="iconfont">&#xe613;</i></a>
-            <a href="#" class="remove2"><i class="iconfont">&#xe623;</i></a>
+        <!-------------右边的盒子------------->
+        <div class="rightBox col-md-4">
+          <span class="cover r">
+            <div class="loading"></div>
+          </span>
+          <div class="rightBox-header">
+            <h1><strong>Browser </strong>Usage</h1>
+            <div>
+              <a href="#" class="fresh2"><i class="glyphicon glyphicon-refresh"></i></a>
+              <a href="#" class="remove2"><i class="glyphicon glyphicon-remove"></i></a>
+
+
+            </div>
           </div>
+          <!--创建一个echarts的容器-->
+          <div id="echartRContainer" class="transparent;" style="width:100%; height:304px;"></div>
         </div>
-        <!--创建一个echarts的容器-->
-        <div id="echartRContainer" class="transparent;" style="width:100%; height:304px;"></div>
       </div>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
   import "../assets/font/iconfont.css"
+  import Datas from "../apis/getData"
+  import $  from "jquery"
   var echarts = require('echarts')
 
   var leftBoxData = [
-    '市场监管局', ' 卫计委', '环保局', '民宗委', '人保局', '文广局', '规土局', '发改局'
-  ]
+    '早上', '下午','晚上']
   var leftBoxtDateData = [
     '9月1日', '9月2日', '9月3日', '9月4日',
     '9月5日', '9月6日', '9月7日']
   var righBoxtData =[
-    {value:20, name:'外埠纳税人'},
-    {value:35, name:'临时税务\n登记纳税人'},
-    {value:30, name:'单位纳税人'},
-    {value:40, name:'个体经营纳税人'}
+    {value:20, name:'惠生活'},
+    {value:35, name:'爱玩乐'},
+    {value:30, name:'住酒店'},
+    {value:40, name:'享美食'}
   ]
   export default {
         name: "ChartsComponents",
-        data() {
-          return{
-          }
-
+    data(){
+      return{
+        login:[]
+      }
     },
     methods:{
-            myChartContainer()
-            {
-              myChart.style.width = window.innerWidth+'px';
-              myChart.style.height = window.innerHeight+'px';
-            },
             loginCharts(){
               // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echartLContainer'));
+            var myChart = echarts.init(document.getElementById('echartLContainer'));
 // 绘制图表
         var normalcolor = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
           offset: 0,
@@ -78,7 +85,7 @@
           offset: 1,
           color: '#2af598'
         }]);
-
+        var his=this
         var option = {
           timeline: {
             data:leftBoxtDateData ,
@@ -140,7 +147,7 @@
               'name': '注册指数',
               'yAxisIndex': 1,
               'type': 'bar',
-              'data': [5, 6, 8, 28, 8, 24, 11, 16],
+              'data': his.login.data1,
               itemStyle: {
                 normal: {
                   color: function(params) {
@@ -172,12 +179,13 @@
                 }
               },
             }]
-          }, {
+          },
+            {
             title: {
               'text': '9月2日'
             },
             series: [{
-              'data': [45, 43, 64, 134, 188, 43, 109, 12]
+              'data':this.login.data2
             }]
           },
             {
@@ -185,7 +193,7 @@
                 'text': '9月3日'
               },
               series: [{
-                'data': [110, 32, 111, 176, 73, 59, 181, 9]
+                'data': this.login.data3
               }]
             },
             {
@@ -193,7 +201,7 @@
                 'text': '9月4日'
               },
               series: [{
-                'data': [94, 37, 64, 55, 56, 41, 70, 17]
+                'data': this.login.data4
               }]
             },
             {
@@ -201,7 +209,7 @@
                 'text': '9月5日'
               },
               series: [{
-                'data': [5, 6, 5, 28, 8, 24, 11, 16]
+                'data': this.login.data5
               }]
             },
             {
@@ -209,7 +217,7 @@
                 'text': '9月6日'
               },
               series: [{
-                'data': [45, 34, 64, 134, 188, 43, 109, 12]
+                'data': this.login.data6
               }]
             },
             {
@@ -217,7 +225,7 @@
                 'text': '9月7日'
               },
               series: [{
-                'data': [5, 6, 34, 28, 8, 24, 11, 16]
+                'data':this.login.data7
               }]
             }
           ]
@@ -229,7 +237,7 @@
               var option = {
                 backgroundColor:"",
                 title : {
-                  text: '纳税人分布情况',
+                  text: '',
                   x:'center',
                   textStyle: {
                     color: '#fff',
@@ -276,21 +284,63 @@
                 ]
               };
               myChart.setOption(option);
-            }
-          },
+            },
+            getdata(){
+              Datas._getLoginData(datas=>{
+                this.login=datas
+                console.log(datas)
+              })
+      },
+    },
+    created(){
+      this.getdata()
+    },
     mounted(){
-          //左右图标
-          this.loginCharts(),
-            this.rCharts()
-        this.myChartContainer()
-        // remove事件
-      $(".remove1").click(function () {
-        $(".leftBox").css({display:"none"})
+          this.$nextTick(()=>{
+            console.log(this.login)
+            //左右图标
+            this.loginCharts(),
+              this.rCharts()
+            this.getdata()
+          })
+
+      // remove事件
+      $(".fresh1").click(function () {
+        let count=0
+        this.timer=setInterval(()=>{
+          $(".cover").css({"display":"block"})
+          // count++
+          // if(count==1){
+          //   $(".cover").css({"display":"block"})
+          // }else if(count==2){
+          //   $(".logintxt").html("登录中..")
+          // }else if(count==3){
+          //   $(".logintxt").html("登录中...")
+          // }
+        },200)
+        //消失毛玻璃
+        $(".l").hide(100)
+        //改变btn内容
+        $(".sub-btn").html("")
+        //停止定时器
+        clearInterval(this.timer)
       })
-      $(".remove2").click(function () {
-        $(".rightBox").css({display:"none"})
+
+      //jquery
+
+        $(".remove1").click(function () {
+          $(".leftBox").css({display:"none"})
+        })
+        $(".remove2").click(function () {
+          $(".rightBox").css({display:"none"})
+        })
+        // $(".fresh1").click(function () {
+        //   $(".l").css({display:"block"})
+        // })
+        $(".fresh2").click(function () {
+        $(".r").css({display:"block"})
       })
-      }
+    }
   }
 </script>
 
@@ -298,15 +348,34 @@
 <style scoped>
   .row{background:transparent;
   margin: auto 15px}
-  .col-md-8{width: 66%}
-  .col-md-4{width: 33%}
-  a:hover{text-underline: none}
+  .col-md-8{width: 60%}
+  .col-md-4{width: 38%}
+  .col-md-6{width: 49%}
+
   .leftBox{
     float: left;
     height: 374px;
     border-radius: 5px;
-    background:linear-gradient(to right,#a87e69,#6e4a5c) transparent;
+    background:linear-gradient(to right,rgba(168,126,105,.2),rgba(110,74,92,.2));
     margin-right: 1%;
+    position: relative;
+  }
+  .cover{
+    width:100%;
+    height:100% ;
+  position: absolute;
+    background: #000;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    display: none;
+    opacity: 0.5}
+  .loading{
+    width: 13px;
+    height: 13px;
+    margin:174px auto;
+    background: url("../assets/img/loader.gif") no-repeat;
+    background-size:13px 13px;
   }
   .leftBox-header{
     position: relative;
@@ -324,6 +393,7 @@
     color: #beacaa;
     font-size: 14px;
   }
+
   .leftBox-header h1{
     height: 62px;
     line-height: 62px;
@@ -339,15 +409,19 @@
     float: right;
     height: 374px;
     border-radius: 5px;
-    background:linear-gradient(to bottom,#a87e69,#6e4a5c);}
+    background:linear-gradient(to right,rgba(168,126,105,.2),rgba(110,74,92,.2));
+  }
   .rightBox-header{
+    position: relative;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px dashed #a97c77;
   }
   .rightBox-header div{
-    padding-top:10px;
-    width: 15%;
+    position: absolute;
+    top: 20px;
+    right:5px ;
+    width: 12%;
     display: flex;
     justify-content: space-around;}
   .rightBox-header div i{
@@ -361,6 +435,7 @@
     color: #ffffff;
 
   }
+
   @media (max-width: 1300px){
     .col-md-8 {width: 100%;margin-bottom: 25px}
     .col-md-4 {width: 100%;}

@@ -25,7 +25,7 @@
                         <div style="margin-bottom: 5px;">layout</div>
                           <dtv class="">
                             <div class="progress">
-                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                              <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
                                 <span class="sr-only">40% Complete (success)</span>
                               </div>
                             </div>
@@ -35,7 +35,7 @@
                       <li role="presentation" class="divider"></li>
                       <li role="presentation" class="headerMeauLi1">
                         <a role="menuitem" tabindex="-1" href="#"><div style="margin-bottom: 10px;">Scheam</div><div class="progress">
-                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                        <div class="progress-bar active progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
                           <span class="sr-only">20% Complete</span>
                         </div>
                       </div>
@@ -43,13 +43,13 @@
                       </li>
                       <li role="presentation" class="divider"></li>
                       <li role="presentation" class="headerMeauLi1"><a role="menuitem" tabindex="-1" href="#"><div style="margin-bottom: 10px;">Forms</div><div class="progress">
-                        <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <div class="progress-bar active progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                           <span class="sr-only">60% Complete (warning)</span>
                         </div>
                       </div></a></li>
                       <li role="presentation" class="divider"></li>
                       <li role="presentation" class="headerMeauLi1"><a role="menuitem" tabindex="-1" href="#"><div style="margin-bottom: 10px;">Javascript</div><div class="progress">
-                        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        <div class="progress-bar active progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                           <span class="sr-only">80% Complete (danger)</span>
                         </div>
                       </div></a></li>
@@ -229,7 +229,7 @@
                   </div>
                   <p>3</p>
                 </div>
-                <div class="topInnerRDiv">
+                <div class="topInnerRDiv topInnerRDiv4">
                   <img src="../assets/img/top-head.jpg" alt="">
                   <div  class="name">John Douey</div>
                   <div class="dropdown dropdownBox"  style="position: relative">
@@ -240,12 +240,12 @@
                       <li role="presentation" class="dropdown-header headerHead">Backgrouds</li>
                       <li role="presentation" class="headerMeauLi">
                           <div class="bgColor">
-                              <div class="bgCircle"></div>
-                              <div class="bgCircle" style="background:#e5b867"></div>
-                              <div class="bgCircle" style="background:#6b7181"></div>
-                              <div class="bgCircle" style="background:#79868f"></div>
-                              <div class="bgCircle" style="background:#9d726c"></div>
-                              <div class="bgCircle" style="background:#adbacb"></div>
+                              <img src="../assets/img/bg1.jpg" alt="">
+                              <img src="../assets/img/bg2.jpg" alt="">
+                              <img src="../assets/img/bg3.jpg" alt="">
+                              <img src="../assets/img/bg4.jpg" alt="">
+                              <img src="../assets/img/bg5.jpg" alt="">
+                              <img src="../assets/img/bg6.jpg" alt="">
                           </div>
                       </li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Video BG</a></li>
@@ -266,7 +266,7 @@
                       <li role="presentation">
                         <a role="menuitem" tabindex="-1" href="#">
                           <span class="glyphicon glyphicon-envelope" style="color:#717171;"></span>
-                          Inbox
+                          Inbox<span class="badge" style="color: white;">42</span>
                         </a>
                       </li>
                       <li role="presentation" class="divider"></li>
@@ -276,7 +276,7 @@
                   </div>
 
                 </div>
-                <div class="topInnerRDiv">
+                <div class="topInnerRDiv topInnerRDiv5">
                   <span class="glyphicon glyphicon-comment"></span>
                 </div>
               </div>
@@ -291,18 +291,133 @@
     export default {
       name: "TopComponents",
       mounted(){
+        $(function () {
+
+          // 背景存储 及切换
+          var bgig = localStorage.getItem("bgig");
+          if (bgig == null) {
+            $(".BigBox").css({ "background-image": "url(../assets/img/bg1.jpg)", "background-size": "cover" });
+          }
+          else {
+            $(".BigBox").css({ "background-image": "url(" + bgig + ")", "background-size": "cover" });
+          }
+
+
+          // 点击背景标 切换背景
+          $(".bgColor img").click(function () {
+            var src = $(this).attr("src");
+            $(".BigBox").css({ "background-image": "url(" + src + ")","background-repeat":"no-repeat","background-size":"100%" });
+            localStorage.setItem("bgig", src);
+          });
+          // 点击右侧按钮 若隐藏就消失 若不在就显示
+          $('.topInnerRDiv5').click(function(){//点击
+            if($('.rightBigBox').is(':hidden')){//如果当前隐藏
+              $('.rightBigBox').show().css({
+                height:'100%'
+              })
+              $(".BBigBox .BigBox").css({//左侧大盒子改变宽度
+                width: "80%"
+              })
+            }else{//否则
+              $('.rightBigBox').hide();//就隐藏div
+              $(".BBigBox .BigBox").css({//左侧大盒子改变宽度
+                width: "100%"
+              })
+            }
+          })
+
+
+          // 点击最左侧小图标控制菜单导航消失隐藏
+          $(".topLeftBox .glyphicon-align-justify").click(function(){//点击
+                if($('.one').is(':hidden')){
+                  $('.one').show()
+                  $("section .nav").css({
+                    width:"250px"
+                  })
+                  $(".contentBox").css({
+                    width:"calc(100% - 250px)"
+                  })
+                }
+                else{
+                  $('.one').hide();//就隐藏div
+
+                  $("section .nav").css({
+                    width:"45px"
+                  })
+                  $(".contentBox").css({
+                    width:"calc(100% - 45px)"
+                  })
+                }
+                if($('.dis').is(':hidden')){
+                  $('.dis').show()
+                }
+                else{
+                  $('.dis').hide();//就隐藏div
+                }
+                if($('.topLeftBox .topLeftBoxL').is(':hidden')){
+                  $('.topLeftBox .topLeftBoxL').show()
+                  $(".topLeftBox").css({
+                    width:"250px"
+                  })
+                  $(".topRightBox").css({
+                    width:"calc(100% - 250px)"
+                  })
+                }
+                else{
+                  $('.topLeftBox .topLeftBoxL').hide();//就隐藏div
+                  $(".topLeftBox").css({
+                    width:"45px"
+                  })
+                  $(".topRightBox").css({
+                    width:"calc(100% - 45px)"
+                  })
+                }
+          })
+        });
       }
     }
 </script>
 
 <style scoped>
+  /*@media (min-width:@screen-md-min ) and (max-width: @screen-md-max) {*/
+    /**/
+  /*}*/
+  @media screen and (max-width: 960px){
 
-  @media screen and (max-width: 800px){
-    .topLeftBoxL{
+    .topContainer .topLeftBoxL{
+      width: 0;
+    }
+    .topContainer .topLeftBox{
+      width: 45px;
+    }
+    .topContainer .topRightBox{
+      width: calc(100% - 45px);
+    }
+    .topInnerL input{
       display: none;
     }
-    .topLeftBox{
-      width: 45px;
+    .glyphicon-search{
+      display: none;
+    }
+    .topRightBox .topInnerRDiv4{
+      width: 0;
+      padding: 0;
+      border: 0;
+    }
+    .topInnerRDiv4 img{
+      display: none;
+    }
+    .topInnerRDiv4 .name{
+      display: none;
+    }
+    .topInnerRDiv4 span{
+      display: none;
+    }
+    .glyphicon-move{
+      display: none;
+    }
+    .topLeftBoxL p{
+      display: none;
     }
   }
   /*公共样式*/
@@ -322,17 +437,17 @@
     display: block;
   }
 
-.topContainer{
+  .topContainer{
   width: 100%;
   height:50px;
-  background: #cccccc;
+  /*background: #cccccc;*/
   /*opacity: .2;*/
   display: flex;
 }
   .topLeftBox{
     width: 250px;
     height:50px;
-    background: pink;
+    background: rgba(0,0,0,.1);
     /*opacity: .4;*/
     padding:0 17px;
     -webkit-box-sizing: border-box;
@@ -366,12 +481,12 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    background: blue;
+    background: rgba(0,0,0,.06);
    padding: 8px 0;
 }
   .topRightBoxInner{
     width: 100%;
-    background: skyblue;
+    /*background: skyblue;*/
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -379,15 +494,19 @@
   }
   .topRightBoxInner span{
     font-size: 16px;
-    color: white;
+    color: #e4dde9;
   }
   .topInnerL span{
     padding: 0 15px;
+    border-left: 1px solid gray;
+  }
+  .topInnerL span:last-child{
+    border: 0;
   }
   .topInnerL input{
     background: transparent;
     border:0;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid dimgray;
   }
   .topInnerL{
     display: flex;
@@ -404,7 +523,7 @@
     display:flex;
     align-items: center;
     /*justify-content: space-between;*/
-    border-right: 1px solid gray;
+    border-right: 1px solid dimgray;
   }
   .topInnerRDiv:last-child{
     padding-left: 8px;
@@ -416,7 +535,8 @@
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background: #cccccc;
+    background: rgba(0,0,0,.2);
+    color: white;
   }
   .topInnerRDiv img{
     width: 34px;
@@ -425,27 +545,42 @@
   }
   .topInnerRDiv .name {
     /*margin-right: 10px;*/
+    color: white;
   }
   .topRightBoxInner span:hover{
-    color: pink;
+    color: white;
   }
-  button{
+    button{
     background: transparent;
     border: 0;
   }
-  button:hover{
+    button:hover{
     background: transparent;
     border: 0;
+  }
+  .btn-default:focus {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .open > .dropdown-toggle.btn-default:focus, .open > .dropdown-toggle.btn-default:hover {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  .btn-default {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
   }
   .bgColor{
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
-  .bgCircle{
+  .bgColor img{
     width:14px;
     height:14px;
-    background: #ce959b;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -539,4 +674,9 @@
   .media-body{
     vertical-align: middle;
   }
+  .badge{
+    background: red;
+    margin-left: 10px;
+  }
+
 </style>

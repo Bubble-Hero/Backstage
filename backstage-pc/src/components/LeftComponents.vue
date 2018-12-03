@@ -9,18 +9,19 @@
       </li>
     </ul>
 
-    <ul id="accordion" class="collapse in two">
-      <li v-for="(is,ts) in list">
-        <a class="sec" data-toggle="collapse" data-parent="#accordion"
-           href="#collapseTwo">
+    <ul id="demo" class="collapse in two">
+
+      <li v-for="(is,ts) in list" style="position: relative;" class="show">
+        <a class="sec">
           <i :class="is.i1"></i>
           <p class="dis">
             <span>{{is.span}}</span>
             <i :class="is.i2"></i>
           </p>
         </a>
-        <ul id="collapseTwo" class="panel-collapse collapse coo">
-          <li v-for="(iss,tss) in is.ulli">
+        <div class="xiao" style=""></div>
+        <ul style="display: none;" class="coo">
+          <li v-for="(iss,tss) in is.ulli" class="geta">
             <a href="">
               <i :class="iss.i3"></i>
               <span>{{iss.spp}}</span>
@@ -43,7 +44,6 @@
           </div>
         </div>
       </li>
-
       <li class="first">
         <div data-toggle="collapse" data-target="#demo2">
           <span>GENERAL SETTINGS</span>
@@ -114,13 +114,7 @@
                   {"i3":"glyphicon glyphicon-play","spp":"Calendar"},
                   {"i3":"glyphicon glyphicon-play","spp":"Page 404"},
                   {"i3":"glyphicon glyphicon-play","spp":"Page 500"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Page Offline"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Gallery"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Timeline"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Vertical Mail"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Horizpntal Mail"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Vector Maps"},
-                  {"i3":"glyphicon glyphicon-play","spp":"Google Maps"}
+                  {"i3":"glyphicon glyphicon-play","spp":"Page Offline"}
                 ]
               },
               {"i1":"glyphicon glyphicon-expand",
@@ -131,12 +125,71 @@
               }
             ]
           }
+        },
+        mounted(){
+
+
+            $(function(){
+              $('.show').eq(0).children('.xiao').animate({left:"0"})
+              //hover的时候改变字体颜色
+              $('.geta').hover(function(){
+                $(this).children('a').css({
+                  "color":"#418208"
+                })
+                $(this).children('a').children('i').css({
+                  "color":"#418208"
+                })
+                $(this).siblings().children('a').css({
+                  "color":"#fff"
+                })
+                $(this).siblings().children('a').children('i').css({
+                  "color":"#fff"
+                })
+              },function(){
+                $(this).children('a').css({
+                  "color":"#fff"
+                })
+                $(this).children('a').children('i').css({
+                  "color":"#fff"
+                })
+              })
+              //点击下拉菜单
+              $('.sec').click(function(){
+                $(this).siblings(".coo").toggle(300)
+                $(this).parent().siblings("li").children(".coo").slideUp(300)
+                //改变遮罩层的left
+                $(this).siblings('.xiao').animate({
+                  left:'0px'
+                })
+                $(this).parent().siblings("li").children(".xiao").not($('.xiao')[0]).animate({left:'-250px'})
+                //切换iconfont
+                // $(this).children('p').children('i').attr("class","glyphicon glyphicon-minus")
+              })
+            })
+
         }
     }
 </script>
 
 <style scoped>
+  @media screen and (max-width: 960px){
+    .nav{
+      width: 45px!important;
+    }
+    .dis{
+      display: none;
+    }
+    .one{
+      display: none;
+    }
+    .xiao{
+      width: 45px!important;
+    }
+  }
 
+  html,body{
+    height: 100%;
+  }
   *{
     margin: 0;
     padding: 0;
@@ -145,7 +198,8 @@
     list-style: none;
   }
   .nav{
-    background: #ccc;
+    /*position: fixed;*/
+    background: transparent;
     color: #fff;
     width: 250px;
     height: 100%;
@@ -180,6 +234,9 @@
   .nav .two li:hover{
     cursor: pointer;
   }
+  .nav .two li{
+    z-index: 10000!important;
+  }
   .nav .two li .sec{
     display: flex;
     height: 45px;
@@ -201,8 +258,7 @@
     float: right;
   }
   .nav .two li .coo{
-    background: #ccc;
-    padding-left: 20px;
+    padding-left: 40px;
     width: 100%;
   }
   .nav .two li .coo li{
@@ -212,8 +268,19 @@
     font-size: 12px;
     color: #fff;
   }
+  .nav .two li .coo li a i{
+    font-size: 10px;
+    color: #fff;
+  }
   #demo2 p{
     color: #fff;
   }
-
+  .xiao{
+    position: absolute;
+    width: 250px;
+    height: 45px;
+    background: linear-gradient(90deg,rgba(0,0,0,.2),rgba(0,0,0,0));
+    top: 0;
+    left: -250px;
+  }
 </style>
