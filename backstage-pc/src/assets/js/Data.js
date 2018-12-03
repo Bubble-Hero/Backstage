@@ -1,6 +1,8 @@
 
 export default {
 
+  "userNumber":56,
+
   "LoginCount":{
     "data1":[45, 43, 64, 134, 188, 43, 109, 12],
     "data2":[110, 32, 111, 176, 73, 59, 181, 9],
@@ -11,7 +13,6 @@ export default {
     "data7": [5, 6, 34, 28, 8, 24, 11, 16],
   },
 
-  "userNumber":[56],
   "HYM":{},
   "ljj":[],
   "wj":[]
