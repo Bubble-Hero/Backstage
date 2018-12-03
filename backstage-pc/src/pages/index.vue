@@ -128,7 +128,9 @@
 </script>
 
 <style scoped>
-
+body{
+  background-image: url(../assets/img/bg1.jpg);
+}
   .BBigBox{
     width: 100%;
     height: 100%;
@@ -137,7 +139,7 @@
   .BigBox{
     width: 100%;
     height: 100%;
-    background-image: url(../assets/img/bg1.jpg);
+
   }
   section{
     display: flex;
