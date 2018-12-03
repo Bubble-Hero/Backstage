@@ -10,7 +10,7 @@
 
         <!--大内容盒子-->
         <div class="contentBox">
-          <card-components></card-components>
+          <!--<card-components></card-components>-->
           <charts-components></charts-components>
         </div>
 
@@ -119,11 +119,11 @@
 <script>
   import TopComponents from "../components/TopComponents";
   import LeftComponents from "../components/LeftComponents";
-  import CardComponents from "../components/CardComponents";
+  // import CardComponents from "../components/CardComponents";
   import ChartsComponents from "../components/ChartsComponents";
     export default {
       name: "index",
-      components: {ChartsComponents, CardComponents, LeftComponents, TopComponents}
+      components: {ChartsComponents, LeftComponents, TopComponents}
     }
 </script>
 
