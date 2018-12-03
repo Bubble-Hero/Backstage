@@ -462,6 +462,7 @@
   .topLeftBox span{
     font-size: 18px;
     color: white;
+    cursor: pointer;
   }
   .topLeftBoxL{
     display: flex;
@@ -501,6 +502,7 @@
   .topInnerL span{
     padding: 0 15px;
     border-left: 1px solid gray;
+    cursor: pointer;
   }
   .topInnerL span:last-child{
     border: 0;

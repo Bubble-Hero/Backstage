@@ -6,7 +6,10 @@ import router from './router'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min"
 import 'jquery'
+import VueResource from 'vue-resource'
 
+
+Vue.use(VueResource);
 // import echarts from 'echarts'
 
 import './assets/css/base.css'
