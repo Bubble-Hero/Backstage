@@ -10,15 +10,16 @@
     </ul>
 
     <ul id="demo" class="collapse in two">
-      <li v-for="(is,ts) in list" class="lis" style="position: relative">
-        <a class="sec" data-toggle="tab" href="#home">
+
+      <li v-for="(is,ts) in list" style="position: relative;" class="show">
+        <a class="sec">
           <i :class="is.i1"></i>
           <p class="dis">
             <span>{{is.span}}</span>
             <i :class="is.i2"></i>
           </p>
         </a>
-        <!--<div class="xiao" style=""></div>-->
+        <div class="xiao" style=""></div>
         <ul style="display: none;" class="coo">
           <li v-for="(iss,tss) in is.ulli" class="geta">
             <a href="">
@@ -43,7 +44,6 @@
           </div>
         </div>
       </li>
-
       <li class="first">
         <div data-toggle="collapse" data-target="#demo2">
           <span>GENERAL SETTINGS</span>
@@ -128,8 +128,10 @@
         },
         mounted(){
 
-            //hover的时候改变字体颜色
+
             $(function(){
+              $('.show').eq(0).children('.xiao').animate({left:"0"})
+              //hover的时候改变字体颜色
               $('.geta').hover(function(){
                 $(this).children('a').css({
                   "color":"#418208"
@@ -151,12 +153,18 @@
                   "color":"#fff"
                 })
               })
-
+              //点击下拉菜单
               $('.sec').click(function(){
                 $(this).siblings(".coo").toggle(300)
                 $(this).parent().siblings("li").children(".coo").slideUp(300)
+                //改变遮罩层的left
+                $(this).siblings('.xiao').animate({
+                  left:'0px'
+                })
+                $(this).parent().siblings("li").children(".xiao").not($('.xiao')[0]).animate({left:'-250px'})
+                //切换iconfont
+                // $(this).children('p').children('i').attr("class","glyphicon glyphicon-minus")
               })
-
             })
 
         }
@@ -164,7 +172,24 @@
 </script>
 
 <style scoped>
+  @media screen and (max-width: 960px){
+    .nav{
+      width: 45px!important;
+    }
+    .dis{
+      display: none;
+    }
+    .one{
+      display: none;
+    }
+    .xiao{
+      width: 45px!important;
+    }
+  }
 
+  html,body{
+    height: 100%;
+  }
   *{
     margin: 0;
     padding: 0;
@@ -172,14 +197,9 @@
   ul li{
     list-style: none;
   }
-  .acti{
-    color: #66c910!important;
-  }
   .nav{
+    /*position: fixed;*/
     background: transparent;
-
-    /*background: #ce959b;*/
-
     color: #fff;
     width: 250px;
     height: 100%;
@@ -214,6 +234,9 @@
   .nav .two li:hover{
     cursor: pointer;
   }
+  .nav .two li{
+    z-index: 10000!important;
+  }
   .nav .two li .sec{
     display: flex;
     height: 45px;
@@ -235,7 +258,7 @@
     float: right;
   }
   .nav .two li .coo{
-    padding-left: 30px;
+    padding-left: 40px;
     width: 100%;
   }
   .nav .two li .coo li{
@@ -256,9 +279,8 @@
     position: absolute;
     width: 250px;
     height: 45px;
-    background: #000;
-    opacity: 0.3;
+    background: linear-gradient(90deg,rgba(0,0,0,.2),rgba(0,0,0,0));
     top: 0;
-    display: none;
+    left: -250px;
   }
 </style>

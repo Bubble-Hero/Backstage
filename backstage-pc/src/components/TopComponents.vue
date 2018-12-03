@@ -292,6 +292,8 @@
       name: "TopComponents",
       mounted(){
         $(function () {
+
+          // 背景存储 及切换
           var bgig = localStorage.getItem("bgig");
           if (bgig == null) {
             $(".BigBox").css({ "background-image": "url(../assets/img/bg1.jpg)", "background-size": "cover" });
@@ -301,24 +303,76 @@
           }
 
 
-
+          // 点击背景标 切换背景
           $(".bgColor img").click(function () {
             var src = $(this).attr("src");
             $(".BigBox").css({ "background-image": "url(" + src + ")","background-repeat":"no-repeat","background-size":"100%" });
             localStorage.setItem("bgig", src);
           });
-
-          $(".topInnerRDiv5").click(function(){
-            $(".BBigBox .BigBox").css({
+          // 点击右侧按钮 若隐藏就消失 若不在就显示
+          $('.topInnerRDiv5').click(function(){//点击
+            if($('.rightBigBox').is(':hidden')){//如果当前隐藏
+              $('.rightBigBox').show().css({
+                height:'100%'
+              })
+              $(".BBigBox .BigBox").css({//左侧大盒子改变宽度
                 width: "80%"
-            })
-
-
-            $("#sideMenu").metisMenu();
-
-
+              })
+            }else{//否则
+              $('.rightBigBox').hide();//就隐藏div
+              $(".BBigBox .BigBox").css({//左侧大盒子改变宽度
+                width: "100%"
+              })
+            }
           })
 
+
+          // 点击最左侧小图标控制菜单导航消失隐藏
+          $(".topLeftBox .glyphicon-align-justify").click(function(){//点击
+                if($('.one').is(':hidden')){
+                  $('.one').show()
+                  $("section .nav").css({
+                    width:"250px"
+                  })
+                  $(".contentBox").css({
+                    width:"calc(100% - 250px)"
+                  })
+                }
+                else{
+                  $('.one').hide();//就隐藏div
+
+                  $("section .nav").css({
+                    width:"45px"
+                  })
+                  $(".contentBox").css({
+                    width:"calc(100% - 45px)"
+                  })
+                }
+                if($('.dis').is(':hidden')){
+                  $('.dis').show()
+                }
+                else{
+                  $('.dis').hide();//就隐藏div
+                }
+                if($('.topLeftBox .topLeftBoxL').is(':hidden')){
+                  $('.topLeftBox .topLeftBoxL').show()
+                  $(".topLeftBox").css({
+                    width:"250px"
+                  })
+                  $(".topRightBox").css({
+                    width:"calc(100% - 250px)"
+                  })
+                }
+                else{
+                  $('.topLeftBox .topLeftBoxL').hide();//就隐藏div
+                  $(".topLeftBox").css({
+                    width:"45px"
+                  })
+                  $(".topRightBox").css({
+                    width:"calc(100% - 45px)"
+                  })
+                }
+          })
         });
       }
     }
@@ -624,4 +678,5 @@
     background: red;
     margin-left: 10px;
   }
+
 </style>

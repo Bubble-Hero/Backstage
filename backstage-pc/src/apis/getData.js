@@ -17,6 +17,5 @@ export default {
   _getUserData(cb) {
     let data=YuanData.userNumber
           cb(data)
-
-  }
+    }
 }
