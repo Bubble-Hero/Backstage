@@ -306,7 +306,7 @@
           // 点击背景标 切换背景
           $(".bgColor img").click(function () {
             var src = $(this).attr("src");
-            $("body").css({ "background-image": "url(" + src + ")","background-repeat":"no-repeat","background-size":"100%" });
+            $("body").css({ "background-image": "url(" + src + ")","background-repeat":"no-repeat","background-size":"cover" });
             localStorage.setItem("bgig", src);
           });
 

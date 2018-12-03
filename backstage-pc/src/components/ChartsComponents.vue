@@ -231,6 +231,9 @@
           ]
         }
         myChart.setOption(option);
+              window.addEventListener('resize', function () {
+                myChart.resize()
+              })
       },
             rCharts(){
               var myChart = echarts.init(document.getElementById('echartRContainer'));
@@ -284,6 +287,9 @@
                 ]
               };
               myChart.setOption(option);
+              window.addEventListener('resize', function () {
+                myChart.resize()
+              })
             },
             getdata(){
               Datas._getLoginData(datas=>{

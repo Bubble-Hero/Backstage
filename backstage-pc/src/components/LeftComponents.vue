@@ -21,12 +21,14 @@
         </a>
         <div class="xiao" style=""></div>
         <ul style="display: none;" class="coo">
+          <router-link to="/form">
           <li v-for="(iss,tss) in is.ulli" class="geta">
             <a href="">
               <i :class="iss.i3"></i>
               <span>{{iss.spp}}</span>
             </a>
           </li>
+          </router-link>
         </ul>
       </li>
     </ul>
