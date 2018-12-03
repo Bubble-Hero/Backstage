@@ -10,8 +10,10 @@
     </ul>
 
     <ul id="demo" class="collapse in two">
+
       <li v-for="(is,ts) in list" style="position: relative;" class="show">
         <a class="sec">
+
           <i :class="is.i1"></i>
           <p class="dis">
             <span>{{is.span}}</span>

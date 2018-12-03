@@ -13,12 +13,9 @@ export default {
   _getLoginData(cb) {
     let data = loginData.LoginCount
     cb(data)
-
-    _getUserData(cb)
-    {
-      let data = YuanData.userNumber
-      cb(data)
-
+  },
+  _getUserData(cb) {
+    let data=YuanData.userNumber
+          cb(data)
     }
-  }
 }
