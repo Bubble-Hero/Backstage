@@ -10,7 +10,7 @@
 
         <!--大内容盒子-->
         <div class="contentBox">
-          <!--<card-components></card-components>-->
+          <card-components></card-components>
           <charts-components></charts-components>
         </div>
 
@@ -119,16 +119,20 @@
 <script>
   import TopComponents from "../components/TopComponents";
   import LeftComponents from "../components/LeftComponents";
-  // import CardComponents from "../components/CardComponents";
+  import CardComponents from "../components/CardComponents";
   import ChartsComponents from "../components/ChartsComponents";
     export default {
       name: "index",
-      components: {ChartsComponents, LeftComponents, TopComponents}
+      components: {CardComponents,ChartsComponents, LeftComponents, TopComponents}
     }
 </script>
 
 <style scoped>
-
+  @media screen and (max-width: 960px){
+    section .contentBox{
+      width:calc(100% - 45px);
+    }
+  }
   .BBigBox{
     width: 100%;
     height: 100%;
