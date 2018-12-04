@@ -320,6 +320,20 @@
   body{
     background-image: url(../assets/img/bg1.jpg);
   }
+  .form-control {
+    background-color: transparent;
+  }
+  button, html input[type=button], input[type=reset], input[type=submit] {
+    background-color: transparent;
+  }
+  button, html input[type=button], input[type=reset], input[type=submit]:hover{
+    background-color: rgba(0,0,0,.1);
+    color: #fff;
+  }
+  .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: transparent;
+    opacity: 1;
+  }
   .BBigBox{
     width: 100%;
     height: 100%;
