@@ -10,8 +10,8 @@
 
         <!--大内容盒子-->
         <div class="contentBox">
-          <card-components></card-components>
-          <charts-components></charts-components>
+          <card-components :CardDatas="CardDatas" ref="myCard"></card-components>
+          <charts-components :chartDatas="chartDatas" ref="mycharts"></charts-components>
         </div>
 
       </section>
@@ -123,7 +123,50 @@
   import ChartsComponents from "../components/ChartsComponents";
     export default {
       name: "index",
-      components: {CardComponents, ChartsComponents, LeftComponents, TopComponents}
+      data(){
+        return{
+          userDatas:[],
+          CardDatas:{},
+          chartDatas:null
+        }
+      },
+      computed:{
+        // CardDatas(){
+        //   return this.userDatas[this.length-1]
+        // }
+      },
+      components: {CardComponents, ChartsComponents, LeftComponents, TopComponents},
+      methods:{
+        getdata(){
+        //  setInterval(()=>{
+            //获取用户数量
+            this.$http.post("http://bgs09143010.gotoip1.com/Backstage-php/getUserMessage.php", {//这里是将表单的数据提交到该地址
+            }, {
+              emulateJSON: true
+            }).then((res) => {
+              //如果数组长度改变，则获取注册用户信息
+              //减少操作
+              if(!((this.userDatas).length==(res.data).length)){
+                //赋给数据
+                this.userDatas=res.data
+                //给子组件做好数据准备 调子组件传数据
+                  //carcomponent
+                this.CardDatas=(res.data)[(res.data).length-1]
+                  //charts
+                this.chartDatas=this.CardDatas.time
+                $(".tip").stop().fadeIn(300)
+                setTimeout(() => {
+                  $(".tip").stop().fadeOut(800)
+                }, 1000)
+                this.$refs.mycharts.getAllDatas(res.data)
+              }
+            })
+          //},100)
+        }
+      },
+      mounted(){
+        this.getdata()
+      }
     }
 </script>
 

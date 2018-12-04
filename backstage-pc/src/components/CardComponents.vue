@@ -2,7 +2,7 @@
   <div style="width: 100%">
     <div class="title">
       <h2><div style="display:flex;flex-direction: column;margin-right: 3rem;margin-top: 1rem;">BubbleHero<span>美团后台管理</span></div><span class="al-center">Content Manage Of MeiTuan</span></h2>
-      <div class="tip" ><i class="iconfont s">&#xe673;</i><span class="s" style="color:#fff">{{userDatas.username}}</span>注册了您的美团</div>
+      <div class="tip" ><i class="iconfont s">&#xe673;</i><span class="s" style="color:#fff">{{CardDatas.username}}</span>注册了您的美团</div>
     </div>
     <!--...bootstrap....-->
     <div class="row" style="margin: 0;">
@@ -12,7 +12,7 @@
              <i class="iconfont">&#xe519;</i>
               <p>
                 <span class="sortSpan01">总用户量</span>
-                <span class="sortSpan02 sortSpan02Big" style="font-size: 5rem;"><span style="width: 10rem;display: inline-block;text-align: center">{{registCount}}</span><span class="sortSpan03 disnone" style="font-size: 1.6rem">人</span></span>
+                <span class="sortSpan02 sortSpan02Big" style="font-size: 5rem;"><span style="width: 10rem;display: inline-block;text-align: center">{{CardDatas.registNum}}</span><span class="sortSpan03 disnone" style="font-size: 1.6rem">人</span></span>
               </p>
             </div>
             <div class="sortBox02">
@@ -93,78 +93,30 @@
   import $ from "jquery"
   export default {
         name: "CardComponents",
-    data(){
-      return{
-        registCount:"",
-        userDatas:{}
-      }
-    },
-    // computed:{
-    //     userArr:function(){
-    //       return this.username.split(';')
-    //     }
-    // },
-    methods:{
-          getdata(){
-           setInterval(()=>{
-             //获取用户数量
-              this.$http.post("http://bgs09143010.gotoip1.com/Backstage-php/save.php", {//这里是将表单的数据提交到该地址
-              }, {
-                emulateJSON: true
-              }).then((res) => {
-                //如果数字改变，则获取注册用户信息
-
-                //减少操作
-                if(Number(this.registCount)<Number(res.data)){
-                  this.registCount=res.data
-                }
-              })
-           },10)
-            //这样获取速度最快，和数字显示无延迟
-            setInterval(()=>{
-                this.$http.post("http://bgs09143010.gotoip1.com/Backstage-php/getUsername.php", {//这里是将表单的数据提交到该地址
-                }, {
-                  emulateJSON: true
-                }).then((res) => {
-                  //如果传进来的用户名不等于此时的用户名，就让发生显示 改变数据
-                  if(!(this.userDatas.username==res.data.username)){
-                    this.userDatas= res.data
-                    $(".tip").stop().fadeIn(300)
-                    setTimeout(() => {
-                      $(".tip").stop().fadeOut(800)
-                    }, 1000)
-                    //console.log(typeof res.data)//object
-                  }
-                })
-            },10)
-          //   Datas._getUserData(datas=>{
-          //     this.user=datas
-          //     console.log(datas)
-          //   })
+        props:["CardDatas"],
+        data(){
+          return{
+            userMessage:{}
           }
-    },
-    // watch:{
-    //     registCount(val, oldVal) {
-    //       //有用户注册立即获取用户所有信息
-    //     }
-    // },
-    mounted(){
-        //---------sort翻转------------
-        $('.sortBox').each(function(){
-          $(this).hover(
-            function(){
-              $(this).css({transform:'rotateY(-180deg)',transition: 'all 0.8s'})
-            },
-            function(){
-              $(this).css({transform:'rotateY(0deg)',transition: 'all 0.4s'})
-            }
-          );
-        }),
-            this.getdata()
-    },
-
-
-
+        },
+        methods:{
+          getDatas(val){
+            this.userMessage=val;
+          }
+        },
+        mounted(){
+            //---------sort翻转------------
+            $('.sortBox').each(function(){
+              $(this).hover(
+                function(){
+                  $(this).css({transform:'rotateY(-180deg)',transition: 'all 0.8s'})
+                },
+                function(){
+                  $(this).css({transform:'rotateY(0deg)',transition: 'all 0.4s'})
+                }
+              );
+            })
+        }
     }
 </script>
 

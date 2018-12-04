@@ -43,30 +43,79 @@
 </template>
 
 <script>
+ // import data1 from "../assets/js/Data"
   import "../assets/font/iconfont.css"
-  import Datas from "../apis/getData"
   import $  from "jquery"
   var echarts = require('echarts')
-
   var leftBoxData = [
-    '早上', '下午','晚上']
+    '白天','晚上']
   var leftBoxtDateData = [
-    '9月1日', '9月2日', '9月3日', '9月4日',
-    '9月5日', '9月6日', '9月7日']
+    '12月1日', '12月2日', '12月3日', '12月4日',
+    '12月5日', '12月6日', '12月7日']
   var righBoxtData =[
     {value:20, name:'惠生活'},
     {value:35, name:'爱玩乐'},
     {value:30, name:'住酒店'},
     {value:40, name:'享美食'}
   ]
+
   export default {
-        name: "ChartsComponents",
+    name: "ChartsComponents",
+   // props:["charDatas"],
     data(){
       return{
-        login:[]
+        charDatas:{},
+        Message:{
+            day1:[[],[]],//12月1日 早上和下午 注册的用户信息
+            day2:[[],[]],//12月2日 早上和下午 注册的用户信息
+            day3:[[],[]],//12月3日 早上和下午 注册的用户信息
+            day4:[[],[]],//12月4日 早上和下午 注册的用户信息
+            day5:[[],[]],//12月5日 早上和下午 注册的用户信息
+            day6:[[],[]],//12月6日 早上和下午 注册的用户信息
+            day7:[[],[]],//12月7日 早上和下午 注册的用户信息
+        },
+          day1:[],//直接打印this.day1取得不是数组
+          day2:[],
+          day3:[],
+          day4:[],
+          day5:[],
+          day6:[],
+          day7:[],
       }
     },
     methods:{
+            getAllDatas(str){
+
+              //循环str
+              for(let i in str) {
+                let obj = str[i]
+                let timer = obj.time
+                let month = timer.slice(5, 7)
+                let day = timer.slice(8, 9)
+                let or = timer.slice(10, 12)
+                let hour = timer.slice(-7, -6)
+                //如果是上午 一定会push到数组的第一个子数组里，然后注册时间的day取决于push到哪个
+                let index="day"+day//day1 day2 day3 ...
+                if (or == "上午") {
+                 // 此处console会报错
+                 // console.log("上午:"+index)
+                  (this.Message[index][0]).push(str[i])//变量放在[]里 所以全局变量得用对象来接他
+
+                } else {          //是下午 push到第二个子数组里
+                 (this.Message[index][1]).push(str[i])
+                 // console.log("下午:"+index)
+                }
+              }
+              console.log(this.Message)
+              //循环push完后 把注册人数分离出来
+              for(let i in this.Message){
+                this[i].push(Number(this.Message[i][0].length))
+                this[i].push(Number(this.Message[i][1].length))
+              }
+              //再次初始化表格
+                this.loginCharts(),
+                this.rCharts()
+            },
             loginCharts(){
               // 基于准备好的dom，初始化echarts实例
             var myChart = echarts.init(document.getElementById('echartLContainer'));
@@ -126,8 +175,8 @@
             },
             calculable: true,
             grid: {
-              'y': 80,
-              'y2': 100
+              'y': 40,
+              'y2': 80
             },
             xAxis: [{
               'type': 'category',
@@ -139,7 +188,7 @@
             yAxis: [{
               'type': 'value',
               'name': '',
-              'max': 200
+              'max': 1000
             }, {
               'type': 'value',
             }],
@@ -147,11 +196,11 @@
               'name': '注册指数',
               'yAxisIndex': 1,
               'type': 'bar',
-              'data': his.login.data1,
+              'data':this.day1,
               itemStyle: {
                 normal: {
                   color: function(params) {
-                    console.log(params.value);
+                //    console.log(params.value);
                     if (params.value < 60)
                       return normalcolor
                     else
@@ -173,6 +222,10 @@
               },
               label: {
                 normal: {
+                  textStyle:{
+                    fontSize:30,
+                    color:"#fff"
+                  },
                   show: true,
                   position: 'top',
                   formatter: '{c}'
@@ -185,7 +238,7 @@
               'text': '9月2日'
             },
             series: [{
-              'data':this.login.data2
+              'data':this.day2,
             }]
           },
             {
@@ -193,7 +246,7 @@
                 'text': '9月3日'
               },
               series: [{
-                'data': this.login.data3
+                'data': this.day3
               }]
             },
             {
@@ -201,7 +254,7 @@
                 'text': '9月4日'
               },
               series: [{
-                'data': this.login.data4
+               'data':this.day4
               }]
             },
             {
@@ -209,7 +262,7 @@
                 'text': '9月5日'
               },
               series: [{
-                'data': this.login.data5
+                'data':this. day5
               }]
             },
             {
@@ -217,7 +270,7 @@
                 'text': '9月6日'
               },
               series: [{
-                'data': this.login.data6
+                'data': this.day6
               }]
             },
             {
@@ -225,12 +278,12 @@
                 'text': '9月7日'
               },
               series: [{
-                'data':this.login.data7
+                'data':this.day7
               }]
             }
           ]
         }
-        myChart.setOption(option);
+              myChart.setOption(option,true);
               window.addEventListener('resize', function () {
                 myChart.resize()
               })
@@ -286,28 +339,21 @@
                   }
                 ]
               };
-              myChart.setOption(option);
-              window.addEventListener('resize', function () {
+              myChart.setOption(option,true);
+              window.addEventListener('resize', ()=> {
                 myChart.resize()
               })
             },
-            getdata(){
-              Datas._getLoginData(datas=>{
-                this.login=datas
-                console.log(datas)
-              })
-      },
-    },
-    created(){
-      this.getdata()
+      resizeEcharts(){
+
+      }
     },
     mounted(){
           this.$nextTick(()=>{
-            console.log(this.login)
-            //左右图标
-            this.loginCharts(),
-              this.rCharts()
-            this.getdata()
+            // //左右图标
+            //   this.loginCharts(),
+            //     this.rCharts()
+
           })
 
       // remove事件
@@ -350,7 +396,6 @@
 
   .leftBox{
     float: left;
-    height: 374px;
     border-radius: 5px;
     background:linear-gradient(to right,rgba(168,126,105,.2),rgba(110,74,92,.2));
     margin-right: 1%;
@@ -403,7 +448,6 @@
   }
   .rightBox{
     float: right;
-    height: 374px;
     border-radius: 5px;
     background:linear-gradient(to right,rgba(168,126,105,.2),rgba(110,74,92,.2));
   }
