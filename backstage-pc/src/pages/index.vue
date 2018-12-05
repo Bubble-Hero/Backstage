@@ -138,7 +138,7 @@
       components: {CardComponents, ChartsComponents, LeftComponents, TopComponents},
       methods:{
         getdata(){
-        //  setInterval(()=>{
+         setInterval(()=>{
             //获取用户数量
             this.$http.post("http://bgs09143010.gotoip1.com/Backstage-php/getUserMessage.php", {//这里是将表单的数据提交到该地址
             }, {
@@ -161,7 +161,7 @@
                 this.$refs.mycharts.getAllDatas(res.data)
               }
             })
-          //},100)
+          },60)
         }
       },
       mounted(){

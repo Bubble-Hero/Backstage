@@ -85,7 +85,23 @@
     },
     methods:{
             getAllDatas(str){
-
+              //清空数组，防止push元素个数增加
+              this.Message={
+                day1:[[],[]],//12月1日 早上和下午 注册的用户信息
+                  day2:[[],[]],//12月2日 早上和下午 注册的用户信息
+                  day3:[[],[]],//12月3日 早上和下午 注册的用户信息
+                  day4:[[],[]],//12月4日 早上和下午 注册的用户信息
+                  day5:[[],[]],//12月5日 早上和下午 注册的用户信息
+                  day6:[[],[]],//12月6日 早上和下午 注册的用户信息
+                  day7:[[],[]]//12月7日 早上和下午 注册的用户信息
+              }
+              this.day1=[],//直接打印this.day1取得不是数组
+                this.day2=[],
+                this.day3=[],
+                this.day4=[],
+                this.day5=[],
+                this.day6=[],
+                this.day7=[]
               //循环str
               for(let i in str) {
                 let obj = str[i]
@@ -101,7 +117,7 @@
                  // console.log("上午:"+index)
                   (this.Message[index][0]).push(str[i])//变量放在[]里 所以全局变量得用对象来接他
 
-                } else {          //是下午 push到第二个子数组里
+                } else  if(or == "下午") {          //是下午 push到第二个子数组里
                  (this.Message[index][1]).push(str[i])
                  // console.log("下午:"+index)
                 }
@@ -115,6 +131,7 @@
               //再次初始化表格
                 this.loginCharts(),
                 this.rCharts()
+              console.log(this.Message.day1)
             },
             loginCharts(){
               // 基于准备好的dom，初始化echarts实例
