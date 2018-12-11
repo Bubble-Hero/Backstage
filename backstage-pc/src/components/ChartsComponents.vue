@@ -103,13 +103,15 @@
                 this.day6=[],
                 this.day7=[]
               //循环str
+              console.log(str)
               for(let i in str) {
                 let obj = str[i]
                 let timer = obj.time
                 let month = timer.slice(5, 7)
                 let day = timer.slice(8, 9)
                 let or = timer.slice(10, 12)
-                let hour = timer.slice(-7, -6)
+
+               // let hour = timer.slice(-7, -6)
                 //如果是上午 一定会push到数组的第一个子数组里，然后注册时间的day取决于push到哪个
                 let index="day"+day//day1 day2 day3 ...
                 if (or == "上午") {
